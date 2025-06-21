@@ -27,6 +27,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   
+  <!-- No <head> ou num arquivo CSS importado -->
+<style>
+  /* 1) Definição da animação */
+  @keyframes fadeUpFromWater {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(1.05);
+      filter: blur(4px);
+    }
+    60% {
+      opacity: 0.8;
+      transform: translateY(20px) scale(1);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* 2) Classe utilitária para usar a animação */
+  .fade-up-water {
+    opacity: 0;               /* começa invisível */
+    animation-name: fadeUpFromWater;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+
+  /* 3) Delays para cascata */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+</style>
+
+
 </head>
 
 <body>
@@ -137,19 +174,20 @@
     </div>
   </div>
 </section>    
+
  <section id="lojas-nautas" class="relative w-full bg-cover bg-center py-12" style="background-image: url('./assets/image/principal/monstro.png');">
   <div class="container mx-auto bg-black/60 backdrop-blur-sm rounded-xl p-8">
     <h2 class="text-4xl lg:text-5xl font-biblica mb-6 text-white">Lojas de Nautas Filiadas à GLMMMRJ</h2>
 
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-white backdrop-blur-md bg-white/5 rounded-xl overflow-hidden">
-       <thead class="bg-white/10 text-yellow-300 border-b border-white/10 animate-pulse-header">
+    
+    <table class="min-w-full text-white backdrop-blur-md bg-[rgba(255,255,255,0.15)] rounded-xl overflow-hidden">
+         <thead class="bg-white/10 text-yellow-300 border-b border-white/10 animate-pulse-header">
 
           <tr>
             <th class="px-4 py-2 text-left">Nome da Loja</th>
             <th class="px-4 py-2 text-center">Nº</th>
             <th class="px-4 py-2 text-left">Cidade</th>
-            <th class="px-4 py-2 text-left">Endereço *</th>
+            <th class="px-4 py-2 text-left">Endereço</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-white/10">
@@ -166,7 +204,7 @@
           <tr class="hover:bg-white/10 transition"><td class="px-4 py-2">Trindade Lodge of RAM</td><td class="px-4 py-2 text-center">1508</td><td class="px-4 py-2">Duque de Caxias</td><td class="px-4 py-2">Rua Paulo de Frontin, Centro</td></tr>
         </tbody>
       </table>
-    </div>
+   
 
     <p class="mt-4 text-sm text-gray-300">* Endereços são estimados com base no corpo simbólico da Loja de Marca correspondente.</p>
   </div>
@@ -264,57 +302,134 @@
 </style>
 
 </section>
-<!-- Seção Participar com animações -->
-<section id="participar" class="bg-gradient-to-b from-[#011C2C] via-[#01263F] to-[#00121A] py-16 px-6 relative overflow-hidden">
+<section id="participar"
+         class="bg-gradient-to-b from-[#011C2C] via-[#01263F] to-[#00121A] py-16 px-6 relative overflow-hidden">
 
   <!-- Peixe 1 animado da esquerda para a direita -->
   <img src="assets/image/principal/abissal2.png" alt="Peixe abissal"
-       class="absolute left-0 bottom-6/8 w-25 animate-[swim_14s_linear_infinite]" />
+       class="absolute left-0 bottom-4/8 w-24 animate-[swim_16s_linear_infinite]" />
 
   <!-- Peixe 2 animado da direita para a esquerda -->
   <img src="assets/image/principal/abissal1.png" alt="Peixe abissal 2"
-       class="absolute right-0 bottom-3/8 w-20 animate-[swim-reverse_18s_linear_infinite]" />
+       class="absolute right-0 bottom-6/8 w-20 animate-[swim-reverse_18s_linear_infinite]" />
 
-<div class="container mx-auto max-w-6xl flex flex-col-reverse lg:flex-row items-center gap-12">
-  <!-- Texto à esquerda -->
-  <div class="text-white lg:w-2/3 animate-fade-in z-10">
-    <span class="uppercase tracking-widest text-sm text-yellow-300 mb-2 block">Nautas da Arca Real</span>
-    <h2 class="text-4xl lg:text-5xl font-biblica mb-6">Como Participar?</h2>
-    <p class="text-lg mb-4 leading-relaxed">
-      A entrada na <span class="text-yellow-300 font-semibold">Ordem dos Nautas</span> não ocorre por inscrição direta, mas por <span class="italic text-blue-200">convocação simbólica</span>.
-    </p>
-    <p class="text-lg mb-4 leading-relaxed">
-        O candidato deve trilhar o caminho com mérito e reconhecimento, numa <span class="underline decoration-yellow-300">Loja de Mestres Maçons da Marca</span>.
-</p>
-  <p class="text-lg mb-4 leading-relaxed">
-     Ser Mestre Maçom da Marca em plena regularidade.
-  </p>
-   <p class="text-lg mb-4 leading-relaxed">
-     Ser indicado e secundado em Loja de Nautas da Arca Real.
-  </p>
-   <p class="text-lg mb-4 leading-relaxed">
-      Aceitar os princípios e regulamentos da Grande Loja de Mestres da Marca</p>
-    <!-- ... restante do texto ... -->
+  <div class="container mx-auto max-w-6xl flex flex-col-reverse lg:flex-row items-center gap-12">
+    <!-- Texto à esquerda -->
+    <div class="text-white lg:w-2/3 animate-fade-in z-10 space-y-4">
+      <span class="uppercase tracking-widest text-sm text-yellow-300 mb-2 block">
+        Nautas da Arca Real
+      </span>
+      <h2 class="text-4xl lg:text-5xl font-biblica mb-6">Como Participar?</h2>
+      <p class="text-lg mb-4 leading-relaxed">
+        A entrada na <span class="text-yellow-300 font-semibold">Ordem dos Nautas</span> não ocorre por inscrição direta, mas por <span class="italic text-blue-200">convocação simbólica</span>.
+      </p>
+      <p class="flex items-start text-lg mb-4 leading-relaxed">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-6 h-6 flex-shrink-0 text-gray-300 mr-3 mt-1"
+             fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+        O candidato deve trilhar o caminho com mérito e reconhecimento, 
+
+        </p>numa <span class="underline decoration-yellow-300">Loja de Mestres Maçons da Marca</span>.
+      </p>
+
+      <!-- Condições com ícone de pérola -->
+      <p class="flex items-start text-lg mb-4 leading-relaxed">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-6 h-6 flex-shrink-0 text-gray-300 mr-3 mt-1"
+             fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+        Ser Mestre Maçom da Marca em plena regularidade.
+      </p>
+      <p class="flex items-start text-lg mb-4 leading-relaxed">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-6 h-6 flex-shrink-0 text-gray-300 mr-3 mt-1"
+             fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+        Ser indicado e secundado em Loja de Nautas da Arca Real.
+      </p>
+      <p class="flex items-start text-lg mb-4 leading-relaxed">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-6 h-6 flex-shrink-0 text-gray-300 mr-3 mt-1"
+             fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+        Aceitar os princípios e regulamentos da Grande Loja de Mestres da Marca.
+      </p>
+    </div>
+
+    <!-- Imagem à direita -->
+    <div class="lg:w-1/3 relative animate-fade-in z-12">
+      <img src="./assets/image/principal/medalha.png"
+           alt="Símbolo da Caminhada para a Arca"
+           class="rounded-lg shadow-lg w-full max-w-sm mx-auto lg:mx-0 transform scale-[1]">
+    </div>
   </div>
 
-  <!-- Imagem à direita -->
-  <div class="lg:w-1/3 relative animate-fade-in z-10">
-  <img src="./assets/image/principal/medalha.jpg"
-       alt="Símbolo da Caminhada para a Arca"
-       class="rounded-lg shadow-lg w-full max-w-sm mx-auto lg:mx-0 transform scale-[.80]">
-</div>
-</div>
   <!-- Decoração simbólica -->
   <div class="absolute top-0 left-0 w-40 h-40 bg-yellow-300 rounded-full opacity-10 blur-3xl animate-pulse"></div>
-  <div class="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 rounded-full opacity-10 blur-2xl animate-spin"></div>
+  <div class="absolute bottom-0 right-0 w-10 h-10 bg-blue-500 rounded-full opacity-10 blur-2xl animate-spin"></div>
 </section>
-<section class="bg-[#010f1c] text-white py-16 overflow-hidden">
-  <h2 class="text-2xl font-semibold text-center mb-10">Onde Estamos</h2>
+<section class="relative py-20 bg-cover bg-top text-gray-100 text-sm leading-relaxed tracking-wide overflow-hidden"
+         style="background-image: url('./assets/image/principal/ararat.png'); font-family: 'Open Sans', sans-serif;">
+  <!-- Overlay escuro -->
+  <div class="absolute inset-0 bg-[rgba(12,1,33,0.7)] z-0"></div>
 
-  <div class="max-w-[1280px] mx-auto flex flex-wrap md:flex-nowrap gap-6 px-4">
+  <div class="relative z-10 max-w-screen-xl mx-auto px-6">
+    <h2 class="text-center text-xl font-semibold mb-8 text-gray-200">
+      Gênesis 7: versículos 1 a 7
+    </h2>
+    <div class="font-[Cardo] text-justify text-gray-200">
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate]">
+        ¹ Então o Senhor disse a Noé: "Entre na arca, você e toda a sua família, porque você é o único justo que encontrei nesta geração.
+      </p>
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate_1s]">
+        ² Leve com você sete casais de cada espécie de animal puro, macho e fêmea, e um casal de cada espécie de animal impuro, macho e fêmea,
+      </p>
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate_1.7s]">
+        ³ e leve também sete casais de aves de cada espécie, macho e fêmea, a fim de preservá-las em toda a terra.
+      </p>
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate_2.4s]">
+        ⁴ Daqui a sete dias farei chover sobre a terra quarenta dias e quarenta noites, e farei desaparecer da face da terra todos os seres vivos que fiz".
+      </p>
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate_3.1s]">
+        ⁵ E Noé fez tudo como o Senhor lhe tinha ordenado.
+      </p>
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate_3.8s]">
+        ⁶ Noé tinha seiscentos anos de idade quando as águas do Dilúvio vieram sobre a terra.
+      </p>
+      <p class="mb-4 animate-[fadeInUp_6s_ease-in-out_infinite_alternate_4.5s]">
+        ⁷ Noé, seus filhos, sua mulher e as mulheres de seus filhos entraram na arca, por causa das águas do Dilúvio.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bolhas animadas -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute bottom-[-50px] w-5 h-5 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite] left-[10%] z-10"></div>
+    <div class="absolute bottom-[-50px] w-4 h-4 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite_2s] left-[25%] z-10"></div>
+    <div class="absolute bottom-[-50px] w-5 h-5 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite_4s] left-[40%] z-10"></div>
+    <div class="absolute bottom-[-50px] w-6 h-6 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite_1s] left-[60%] z-10"></div>
+    <div class="absolute bottom-[-50px] w-5 h-5 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite_3s] left-[75%] z-10"></div>
+    <div class="absolute bottom-[-50px] w-3 h-3 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite_6s] left-[85%] z-10"></div>
+    <div class="absolute bottom-[-50px] w-5 h-5 bg-white/10 rounded-full animate-[rise_10s_ease-in_infinite_5s] left-[50%] z-10"></div>
+  </div>
+</section>
+
+
+<!--  MAPA -->
+<section class="bg-[#010f1c] text-white py-8 overflow-hidden">
+  <h2 class="text-2xl font-semibold text-center mb-4 fade-up-water delay-100">
+    Onde Estamos
+  </h2>
+
+  <div class="max-w-[1280px] mx-auto flex flex-wrap md:flex-nowrap gap-0 px-4">
     
-    <!-- COLUNA ESQUERDA: Mapa -->
-    <div class="w-full md:w-1/2 h-96">
+    <!-- MAPA -->
+    <div class="w-full md:w-1/2 h-96 fade-up-water delay-300">
       <iframe
         title="Mapa GLMMMRJ"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.17426683532!2d-43.17874862486306!3d-22.906942279255038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f6076fc6fe3%3A0xc2fb4acf5379077a!2sR.%20M%C3%A9xico%2C%20119%20-%20Centro%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020031-145!5e0!3m2!1spt-BR!2sbr!4v1750043320848!5m2!1spt-BR!2sbr"
@@ -325,8 +440,8 @@
       ></iframe>
     </div>
 
-    <!-- COLUNA DIREITA: Imagem -->
-    <div class="w-full md:w-1/2 h-96 relative overflow-hidden">
+    <!-- IMAGEM -->
+    <div class="w-full md:w-1/2 h-96 relative overflow-hidden fade-up-water delay-500">
       <div class="absolute inset-0 bg-cover bg-center opacity-20 z-0"></div>
       <img src="assets/image/principal/sacrificio.png"
            alt="Noé oferecendo sacrifício no Monte Ararate"
@@ -334,8 +449,6 @@
     </div>
   </div>
 </section>
-
-
 
 <section class="relative py-20 bg-cover bg-top text-gray-100 text-sm leading-relaxed tracking-wide overflow-hidden" style="background-image: url('./assets/image/principal/ararat.png'); font-family: 'Open Sans', sans-serif;">
   <div class="absolute inset-0 bg-[rgba(12,1,33,0.7)] z-0"></div>
@@ -445,7 +558,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" class="w-5 h-5">
         <path d="M380.9 97.1C339-6.6 241.8-32.8 146.1 8.1 58.7 46.9 14.8 138 40.9 226c-4.5 13.2-11.7 25.2-20.9 35.9-6.4 7.3-8.2 17.4-4.8 26.3l15.1 38.9c5.6 14.4 21.5 22.8 36.7 19.5 20.2-4.4 40.3-11.8 59.3-21.6 21.6 12.5 45.7 21.2 70.5 25.3 89.1 15.4 174.7-41.2 198.7-128.6 24-87.5-20.3-174.4-114.6-204.6zm-158.1 283c-22.4-3.9-44-11.9-63.2-23.7l-17.8-10.6c-6.3-3.8-14.4-3.8-20.7 0-17.3 10.3-35.8 18.1-55.1 23-2.3.6-4.7-.6-5.6-2.8l-11.1-28.6c-.5-1.2-.2-2.6.7-3.6 10.7-11.3 18.7-24.7 23.7-39.1 1.4-4 .6-8.5-2-11.8C58 181.1 90 109.3 166.1 75.2c76.2-34.1 164.6.7 193.6 78.2 29.1 77.6-7.6 165-84.3 197.5-20.6 8.5-43.3 11-65.6 7.2z"/>
       </svg>
-      <span>Peça o seu Orçamento!</span>
+      <span>Tenha seu Site.</span>
     </a>
   </div>
 

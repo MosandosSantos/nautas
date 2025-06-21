@@ -310,3 +310,37 @@ video#fundo {
 .dissolve-text {
   animation: dissolve 6s ease-in-out forwards;
 }
+
+
+/* Mapas */
+@keyframes fadeUpFromWater {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(1.05);
+      filter: blur(4px);
+    }
+    60% {
+      opacity: 0.8;
+      transform: translateY(20px) scale(1);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* 2) Classe utilitária para usar a animação */
+  .fade-up-water {
+    opacity: 0;               /* começa invisível */
+    animation-name: fadeUpFromWater;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+  }
+
+  /* 3) Delays para cascata */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
